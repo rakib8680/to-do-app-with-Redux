@@ -4,9 +4,18 @@ import { useForm } from "react-hook-form";
 
 const AddTaskModal = ({ isOpen, setIsOpen }) => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        console.log(data);
+        onCancel();
+    }
 
+
+    const onCancel = () => {
+        reset();
+        setIsOpen(false);
+
+    }
 
     return (
         <div>
@@ -58,8 +67,8 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
                     </div>
 
                     <div className='flex justify-around pt-5'>
-                        <button type='button' className='bg-red-400 px-5 py-2 text-white rounded-md font-semibold'>Cancel</button>
-                        <button type='submit'  className='bg-blue-400 px-5 py-2 text-white rounded-md font-semibold' >Submit</button>
+                        <button type='button' className='bg-red-400 px-5 py-2 text-white rounded-md font-semibold' onClick={() => onCancel()}>Cancel</button>
+                        <button type='submit' className='bg-blue-400 px-5 py-2 text-white rounded-md font-semibold' >Submit</button>
                     </div>
 
                 </form>
