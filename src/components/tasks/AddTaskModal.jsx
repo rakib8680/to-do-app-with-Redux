@@ -27,7 +27,7 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='flex flex-col gap-1 mt-5 mb-5' >
                         <label htmlFor="title">Title</label>
-                        <input type='text' id='title' {...register("name")} className="rounded-sm" />
+                        <input type='text' id='title' {...register("title")} className="rounded-sm" />
                     </div>
 
                     <div className='flex flex-col gap-1 mb-5' >
