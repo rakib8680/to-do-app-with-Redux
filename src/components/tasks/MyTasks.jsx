@@ -7,7 +7,7 @@ const MyTasks = () => {
   const item = {
     id: 1,
     status: 'pending',
-    title: 'Remove Button',
+    title: 'Remove Task',
     description:
       'We need a remove button in our task card. Meke the button red and use Heroicon for tashbin icon.',
     date: '2023-08-28',

@@ -1,12 +1,16 @@
 import React from 'react';
 import Modal from '../ui/Modal';
 import { useForm } from "react-hook-form";
+import { useDispatch } from 'react-redux';
+import { addTask } from '../../redux/features/tasks/taskSlice';
 
 const AddTaskModal = ({ isOpen, setIsOpen }) => {
-
+    const dispatch = useDispatch();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
+
     const onSubmit = data => {
-        console.log(data);
+        dispatch(addTask(data));
         onCancel();
     }
 
