@@ -1,11 +1,15 @@
 import { BellIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import AddTaskModal from '../components/tasks/AddTaskModal';
 import MyTasks from '../components/tasks/MyTasks';
 import TaskCard from '../components/tasks/TaskCard';
 
 const Tasks = () => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const { tasks } = useSelector((state) => state.tasksSlice);
+  console.log(tasks);
 
   return (
     <div className="h-screen grid grid-cols-12">
@@ -23,7 +27,7 @@ const Tasks = () => {
             </button>
             <button onClick={() => setIsOpen(!isOpen)} className="btn btn-primary">Add Task</button>
 
-            <AddTaskModal isOpen={isOpen} setIsOpen={setIsOpen}/>
+            <AddTaskModal isOpen={isOpen} setIsOpen={setIsOpen} />
 
             <div className="h-10 w-10 rounded-xl overflow-hidden">
               <img
@@ -43,7 +47,9 @@ const Tasks = () => {
               </p>
             </div>
             <div className="space-y-3">
-              <TaskCard />
+              {
+                tasks.map(item => <TaskCard task={item} key={item.id} />)
+              }
             </div>
           </div>
           <div className="relative h-[800px] overflow-auto">
@@ -54,19 +60,22 @@ const Tasks = () => {
               </p>
             </div>
             <div className="space-y-3">
-              <TaskCard />
-              <TaskCard />
+              {
+                tasks.map(item => <TaskCard task={item} key={item.id} />)
+              }
             </div>
           </div>
           <div className="relative h-[800px] overflow-auto">
             <div className="flex sticky top-0 justify-between bg-[#D3DDF9] p-5 rounded-md mb-3">
-              <h1>Up Next</h1>
+              <h1>Completed</h1>
               <p className="bg-primary text-white w-6 h-6 grid place-content-center rounded-md">
                 0
               </p>
             </div>
             <div className="space-y-3">
-              <TaskCard />
+              {
+                tasks.map(item => <TaskCard task={item} key={item.id} />)
+              }
             </div>
           </div>
         </div>
