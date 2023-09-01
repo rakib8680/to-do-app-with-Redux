@@ -18,7 +18,7 @@ const MyTasks = () => {
               key={item.id}
               className="bg-secondary/10 rounded-md p-3 flex justify-between"
             >
-              <h1>{item.title}</h1>
+              <h1 >{item.title}</h1>
               <div className="flex gap-3">
                 <button className="grid place-content-center" title="Details">
                   <DocumentMagnifyingGlassIcon className="w-5 h-5 text-primary" />
