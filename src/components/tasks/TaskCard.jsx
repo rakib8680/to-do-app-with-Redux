@@ -4,7 +4,6 @@ import { removeTask, updateStatus } from '../../redux/features/tasks/taskSlice';
 
 const TaskCard = ({ task }) => {
   const dispatch = useDispatch();
-  console.log(task);
 
   let updatedStatus;
   if (task.status === "pending") {

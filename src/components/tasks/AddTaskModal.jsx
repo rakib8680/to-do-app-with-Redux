@@ -51,6 +51,7 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
                             <option value="Muzan">Muzan</option>
                             <option value="Zenitsu">Zenitsu</option>
                             <option value="Levi Ackerman">Levi Ackerman</option>
+                            <option value="Rakib Khan">Rakib Khan</option>
                             <option value="Madara Uchiha">Madara Uchiha</option>
                             <option value="Yoriichi">Yoriichi</option>
                             <option value="Muzan kibutsuji">Muzan kibutsuji</option>
