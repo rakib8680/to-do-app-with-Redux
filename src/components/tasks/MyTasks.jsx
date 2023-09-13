@@ -4,16 +4,16 @@ import {
 } from '@heroicons/react/24/outline';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { userTasks } from '../../redux/features/tasks/taskSlice';
+import { updateStatus, userTasks } from '../../redux/features/tasks/taskSlice';
 
 const MyTasks = () => {
 
   const dispatch = useDispatch();
 
-  const { tasks, userSpecificTasks  } = useSelector(state => state.tasksSlice);
+  const { tasks, userSpecificTasks } = useSelector(state => state.tasksSlice);
   const { name: userName } = useSelector(state => state.userSlice);
 
-  useEffect(() => { 
+  useEffect(() => {
     dispatch(userTasks(userName))
   }, [userName, tasks]);
 
@@ -32,7 +32,7 @@ const MyTasks = () => {
                 <button className="grid place-content-center" title="Details">
                   <DocumentMagnifyingGlassIcon className="w-5 h-5 text-primary" />
                 </button>
-                <button className="grid place-content-center" title="Done">
+                <button className="grid place-content-center" title="Done" onClick={() => dispatch(updateStatus({ id: item.id, status: "complete" }))}>
                   <CheckIcon className="w-5 h-5 text-primary" />
                 </button>
               </div>
