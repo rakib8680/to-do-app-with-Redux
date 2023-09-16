@@ -2,23 +2,35 @@ import {
   CheckIcon,
   DocumentMagnifyingGlassIcon,
 } from '@heroicons/react/24/outline';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateStatus, userTasks } from '../../redux/features/tasks/taskSlice';
+import TaskDetailsModal from './TaskDetailsModal';
+
+
+
+
 
 const MyTasks = () => {
 
   const dispatch = useDispatch();
-
   const { tasks, userSpecificTasks } = useSelector(state => state.tasksSlice);
   const { name: userName } = useSelector(state => state.userSlice);
+  const [isOpen , setIsOpen] = useState(false);
+
 
   useEffect(() => {
     dispatch(userTasks(userName))
   }, [userName, tasks]);
 
+
+
+
+
+
   return (
     <>
+    <TaskDetailsModal isOpen={isOpen} setIsOpen={setIsOpen}/>
       <h1 className="text-xl my-3">My Tasks</h1>
       <div className=" h-[750px] overflow-auto space-y-3">
         {

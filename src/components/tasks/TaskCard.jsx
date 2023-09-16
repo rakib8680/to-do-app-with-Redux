@@ -23,7 +23,8 @@ const TaskCard = ({ task }) => {
         task.priority == 'Medium' && 'text-green-500'
         ||
         task.priority == 'low' && 'text-blue-500'
-        }`
+        }
+        `
       }>
         {task?.title}
       </h1>
