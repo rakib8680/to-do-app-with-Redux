@@ -4,7 +4,7 @@ import { createSlice, isPending } from "@reduxjs/toolkit";
 const initialState = {
     tasks: [
         {
-            id: 1,
+            id: 0,
             status: 'pending',
             title: 'Remove Button',
             description:
